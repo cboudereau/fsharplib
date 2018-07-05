@@ -1,5 +1,7 @@
 module Log
 
+open System
+
 type [<Struct>] LogLevel = TRACE | DEBUG | INFO | WARN | ERROR
 let private value = function
     | ERROR -> 1
