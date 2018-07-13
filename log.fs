@@ -21,7 +21,7 @@ let setLogLevel lvl = logLevel <- lvl
 
 let mutable Logger = 
     fun lvl (x:string) -> 
-        sprintf "%s : %s"(pretty lvl) x |> Console.WriteLine
+        sprintf "[%s] %s : %s" (System.DateTime.UtcNow.ToString("O")) (pretty lvl) x |> Console.WriteLine
 
 let internal log lvl = 
     fun fmt -> 
