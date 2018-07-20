@@ -1,4 +1,13 @@
+[<AutoOpen>]
 module Core
+
+let (|InnerEx|_|) (ex: exn) =
+    let rec inner : exn -> _= function
+        | :? System.AggregateException as agg ->
+            agg.InnerExceptions |> Seq.tryPick inner
+        | :? 'T as iex -> Some iex
+        | _ -> None
+    inner ex 
 
 type [<Struct>] NonEmptyList<'a> = private NonEmptyList of 'a list
 

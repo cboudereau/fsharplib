@@ -260,4 +260,8 @@ paket-files/
 __pycache__/
 *.pyc
 
+<<<<<<< Updated upstream
 .vs/**
+=======
+.vs/
+>>>>>>> Stashed changes
