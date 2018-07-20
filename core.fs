@@ -29,3 +29,5 @@ module Async =
         let bind f x = x |> bind (function Some x -> f x | None -> ret None)
     module Seq = 
         let choose f = bind (Seq.fold (fun s x -> s |> bind (fun s' -> f x |> map (function Some x' -> seq { yield! s'; yield x' } | None -> s') ) ) (ret Seq.empty))
+    module Map = 
+        let toAsync x = x |> Map.fold (fun s k v -> s |> bind (fun s' -> v |> map (fun v' -> Map.add k v' s'))) (ret Map.empty)
