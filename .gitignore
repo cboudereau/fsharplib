@@ -260,8 +260,5 @@ paket-files/
 __pycache__/
 *.pyc
 
-<<<<<<< Updated upstream
-.vs/**
-=======
+.ionide/
 .vs/
->>>>>>> Stashed changes

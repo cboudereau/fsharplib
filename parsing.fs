@@ -3,7 +3,7 @@ module Parsing
 open System.Text.RegularExpressions
 
 let (|Int|_|) x = 
-    match System.Int32.TryParse(x) with
+    match System.Int32.TryParse(x:string) with
     | true, i -> Some i
     | _ -> None
 
